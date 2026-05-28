@@ -1,0 +1,70 @@
+/* BookFlow Client — Global Styles */
+
+:root {
+  --bg:          var(--tg-theme-bg-color,           #ffffff);
+  --bg2:         var(--tg-theme-secondary-bg-color,  #f1f1f1);
+  --text:        var(--tg-theme-text-color,          #000000);
+  --hint:        var(--tg-theme-hint-color,          #999999);
+  --link:        var(--tg-theme-link-color,          #2481cc);
+  --btn:         var(--tg-theme-button-color,        #2481cc);
+  --btn-text:    var(--tg-theme-button-text-color,   #ffffff);
+  --destructive: var(--tg-theme-destructive-text-color, #ff3b30);
+
+  --r:    12px;
+  --r-sm: 8px;
+  --gap:  12px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --green:  #34c759;
+  --orange: #ff9500;
+  --red:    #ff3b30;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+button { font-family: var(--font); cursor: pointer; }
+input, textarea, select { font-family: var(--font); }
+
+/* Скроллбар прихований */
+::-webkit-scrollbar { display: none; }
+* { scrollbar-width: none; }
+
+/* Skeleton shimmer */
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.skeleton {
+  border-radius: var(--r-sm);
+  background: linear-gradient(90deg,
+    var(--bg2) 25%, var(--bg) 50%, var(--bg2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.3s infinite;
+}
+
+/* Slide-in анімація екранів */
+@keyframes slideIn {
+  from { transform: translateX(40px); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+@keyframes fadeUp {
+  from { transform: translateY(12px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
